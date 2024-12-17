@@ -2,7 +2,10 @@ package org.endorodrigo.service;
 
 import org.endorodrigo.model.Examen;
 
+import java.util.Optional;
+
 public interface ExamenService {
 
-    Examen findElemntForName(String name);
+    Optional<Examen> findElemntForName(String name);
+    Examen findexamenForPreguntas(String name);
 }

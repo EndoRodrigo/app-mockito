@@ -29,4 +29,12 @@ public class Examen {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<String> getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(List<String> preguntas) {
+        this.preguntas = preguntas;
+    }
 }
