@@ -55,4 +55,15 @@ class ExamenServiceImpTest {
         assertEquals(4, examen.getPreguntas().size());
         assertTrue(examen.getPreguntas().contains("aritmetica"));
     }
+
+    @Test
+    void testPreguntasForExamenVerity() {
+        when(repository.findAll()).thenReturn(Datos.datos);
+        when(preguntasRepository.findPreguntasporExamen(5L)).thenReturn(Datos.preguntas);
+        Examen examen = service.findexamenForPreguntas("MATEMATICAS");
+        assertEquals(4, examen.getPreguntas().size());
+        assertTrue(examen.getPreguntas().contains("aritmetica"));
+        verify(repository).findAll();
+        verify(preguntasRepository).findPreguntasporExamen(5L);
+    }
 }
