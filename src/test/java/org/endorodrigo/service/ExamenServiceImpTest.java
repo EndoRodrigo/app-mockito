@@ -6,6 +6,11 @@ import org.endorodrigo.repository.ExamenRepositoryOtros;
 import org.endorodrigo.repository.PreguntasRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,18 +20,24 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class ExamenServiceImpTest {
 
+    @Mock
     ExamenRepository repository;
-    ExamenService service;
+    @InjectMocks
+    ExamenServiceImp service;
+
+    @Mock
     PreguntasRepository preguntasRepository;
 
-    @BeforeEach
+    /* @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
         repository = mock(ExamenRepository.class);
         preguntasRepository = mock(PreguntasRepository.class);
         service = new ExamenServiceImp(repository, preguntasRepository);
-    }
+    }*/
 
     @Test
     void findElemntForName() {
