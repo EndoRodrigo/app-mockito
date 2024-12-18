@@ -77,4 +77,13 @@ class ExamenServiceImpTest {
         verify(repository).findAll();
         verify(preguntasRepository).findPreguntasporExamen(5L);
     }
+
+    @Test
+    void testGuaradarExamen() {
+        when(repository.guardar(any(Examen.class))).thenReturn(Datos.examen);
+        Examen examen = service.guardar(Datos.examen);
+        assertNotNull(examen.getId());
+        assertEquals(8L, examen.getId());
+        assertEquals("Fisica", examen.getName());
+    }
 }

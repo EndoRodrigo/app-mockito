@@ -19,4 +19,6 @@ public class Datos {
             "geometria"
             );
 
+    public final static Examen examen = new Examen(8L,"FISICA");
+
 }
